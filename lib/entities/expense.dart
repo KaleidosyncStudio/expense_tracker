@@ -5,7 +5,10 @@ import 'package:objectbox/objectbox.dart';
 class Expense {
   @Id()
   int id;
+
+  @Property(type: PropertyType.date)
   DateTime date;
+
   double value;
   final category = ToOne<Category>();
 

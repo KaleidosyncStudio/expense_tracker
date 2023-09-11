@@ -7,7 +7,7 @@ class Category {
   int id;
 
   String name;
-  Color color;
+  String color;
 
   Category({
     this.id = 0,

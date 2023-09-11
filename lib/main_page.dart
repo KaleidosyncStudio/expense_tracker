@@ -3,7 +3,7 @@ import 'package:expense_tracker/pages/history_page.dart';
 import 'package:expense_tracker/pages/home_page.dart';
 import 'package:expense_tracker/pages/new_expense.dart';
 import 'package:expense_tracker/pages/settings_page.dart';
-import 'package:expense_tracker/pages/this_month_page.dart';
+import 'package:expense_tracker/pages/categories_page.dart';
 import 'package:flutter/material.dart';
 
 class MainPage extends StatefulWidget {
@@ -18,8 +18,8 @@ class _MainPageState extends State<MainPage> {
 
   List<Widget> pages = [
     const HomePage(),
-    const ThisMonthPage(),
     const HistoryPage(),
+    const CategoriesPage(),
     const SettingsPage(),
   ];
 
@@ -66,12 +66,12 @@ class _MainPageState extends State<MainPage> {
               label: "Home page",
             ),
             BottomBarWithSheetItem(
-              icon: Icons.calendar_month,
-              label: "This month",
-            ),
-            BottomBarWithSheetItem(
               icon: Icons.history,
               label: "History",
+            ),
+            BottomBarWithSheetItem(
+              icon: Icons.category,
+              label: "Categories",
             ),
             BottomBarWithSheetItem(
               icon: Icons.settings,
