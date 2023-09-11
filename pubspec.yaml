@@ -11,10 +11,12 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  cupertino_icons: ^1.0.2
+  
   objectbox: ^2.2.1
   syncfusion_flutter_charts: ^22.2.12
   flutter_local_notifications: ^15.1.1
-  cupertino_icons: ^1.0.2
+  bottom_bar_with_sheet: ^2.4.0
 
 dev_dependencies:
   flutter_test:
