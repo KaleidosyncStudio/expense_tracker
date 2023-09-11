@@ -1,6 +1,6 @@
 import 'package:bottom_bar_with_sheet/bottom_bar_with_sheet.dart';
 import 'package:expense_tracker/pages/history_page.dart';
-import 'package:expense_tracker/pages/landing_page.dart';
+import 'package:expense_tracker/pages/home_page.dart';
 import 'package:expense_tracker/pages/new_expense.dart';
 import 'package:expense_tracker/pages/settings_page.dart';
 import 'package:expense_tracker/pages/this_month_page.dart';
@@ -10,28 +10,20 @@ class MainPage extends StatefulWidget {
   const MainPage({super.key});
 
   @override
-  State<MainPage> createState() => _MyHomePageState();
+  State<MainPage> createState() => _MainPageState();
 }
 
-class _MyHomePageState extends State<MainPage> {
+class _MainPageState extends State<MainPage> {
   final _bottomBarController = BottomBarWithSheetController(initialIndex: 0);
 
   List<Widget> pages = [
-    const LandingPage(),
+    const HomePage(),
     const ThisMonthPage(),
     const HistoryPage(),
     const SettingsPage(),
   ];
 
   int currentIndex = 0;
-
-  @override
-  void initState() {
-    _bottomBarController.stream.listen((opened) {
-      debugPrint('Bottom bar ${opened ? 'opened' : 'closed'}');
-    });
-    super.initState();
-  }
 
   void changePage(int newPage) {
     setState(() {
