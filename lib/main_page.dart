@@ -14,7 +14,9 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPageState extends State<MainPage> {
-  final _bottomBarController = BottomBarWithSheetController(initialIndex: 0);
+  final _bottomBarController = BottomBarWithSheetController(
+    initialIndex: 0,
+  );
 
   List<Widget> pages = [
     const HomePage(),
@@ -35,6 +37,7 @@ class _MainPageState extends State<MainPage> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        resizeToAvoidBottomInset: false,
         bottomNavigationBar: BottomBarWithSheet(
           controller: _bottomBarController,
           mainActionButtonTheme: MainActionButtonTheme(
@@ -78,7 +81,9 @@ class _MainPageState extends State<MainPage> {
               label: "Settings",
             ),
           ],
-          sheetChild: const NewExpensePage(),
+          sheetChild: NewExpensePage(
+            bottomBarController: _bottomBarController,
+          ),
         ),
         body: pages[currentIndex],
       ),

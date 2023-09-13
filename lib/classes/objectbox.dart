@@ -37,14 +37,16 @@ class ObjectBox {
     return _instance;
   }
 
-  void addExpense(DateTime date, double value) => _expense.put(
+  int addExpense(DateTime date, double value, Category category) =>
+      _expense.put(
         Expense(
           date: date,
           value: value,
+          category: category,
         ),
       );
 
-  void addCategory(String name, String color) => _category.put(
+  int addCategory(String name, String color) => _category.put(
         Category(
           name: name,
           color: color,
@@ -56,13 +58,7 @@ class ObjectBox {
   void removeCategory(int id) => _category.remove(id);
 
   List<Expense> getExpensesForThisMonth() {
-    final builder = _expense
-        .query(
-          Expense_.date.lessOrEqual(
-            DateTime.now().millisecond,
-          ),
-        )
-        .build();
+    final builder = _expense.query().build();
 
     List<Expense> expenses = builder.find();
     builder.close();

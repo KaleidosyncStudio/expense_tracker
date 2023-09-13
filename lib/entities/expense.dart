@@ -4,7 +4,7 @@ import 'package:objectbox/objectbox.dart';
 @Entity()
 class Expense {
   @Id()
-  int id;
+  int id = 0;
 
   @Property(type: PropertyType.date)
   DateTime date;
@@ -16,5 +16,8 @@ class Expense {
     this.id = 0,
     required this.date,
     required this.value,
-  });
+    Category? category,
+  }) {
+    this.category.target = category;
+  }
 }
